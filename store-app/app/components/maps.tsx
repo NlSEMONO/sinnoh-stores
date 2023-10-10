@@ -2,26 +2,29 @@
 import {useEffect, useState, useMemo, useContext} from 'react';
 import { ScreenContext } from './ScreenContext';
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import Label from './Label';
+import { EVERYTHING_ELSE, PHONES, SMALL_LAPTOP, TABLETS } from '../constants';
 
-const Map = () => {
+const Map = async () => {
   const [screenSetting, useScreenSetting] = useState(2);
   const SendSize = useContext(ScreenContext);
   useEffect(() => {
     const setSetting = () => {
-      // const body = document.body;
-      // const html = document.documentElement;
-      // let width = Math.min(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
-      // let height = Math.min(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-      if (window.screen.width < 521) {
-        useScreenSetting(0);
+      const body = document.body;
+      const html = document.documentElement;
+      let width = Math.min(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+      let height = Math.min(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+      console.log(width, height);
+      if (width < 521) {
+        useScreenSetting(PHONES);
       }
-      else if (window.screen.width < 721) {
-        useScreenSetting(1);
+      else if (width < 721) {
+        useScreenSetting(TABLETS);
       }
-      else if (window.screen.width < 1080) {
-        useScreenSetting(2);
+      else if (width < 1080) {
+        useScreenSetting(SMALL_LAPTOP);
       } else {
-        useScreenSetting(3);
+        useScreenSetting(EVERYTHING_ELSE);
       }
     };
     setSetting();
@@ -30,31 +33,35 @@ const Map = () => {
   const {isLoaded} = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string // "AIzaSyAEYKvYmAURX7zN847wkQHmidfvHw61By8"
   })
+
+  const locations = await fetch('https://dummyjson.com/products/1').then(
+    res => res.json()
+  );
   
   return isLoaded ? (
-    <>
-      <ScreenContext.Provider value={screenSetting}>
-        <WrappedMap />
+    <div className='py-8'>
+      <ScreenContext.Provider value={screenSetting}> 
+        <WrappedMap locations={await locations}/>
       </ScreenContext.Provider>
-    </>
+    </div>
   ) : <div> Loading... </div>
 }
 
-function WrappedMap() {
+function WrappedMap(props: {locations: object}) {
   const screenSetting = useContext(ScreenContext);
   const hokkaidoCoords = {
     lat: 43.7203, 
     lng: 142.8635
   }
-  let zoom = 7;
-  let classes = '';
-  if (screenSetting === 0) {
+  let zoom: number = 7;
+  let classes: string = '';
+  if (screenSetting === PHONES) {
     zoom = 6;
     classes = 'w-auto h-72 mx-12';
-  } else if (screenSetting === 1) {
+  } else if (screenSetting === TABLETS) {
     zoom = 6.75;
     classes = 'w-auto h-96 mx-16';
-  } else if (screenSetting === 2 ) {
+  } else if (screenSetting === SMALL_LAPTOP) {
     zoom = 7;
     classes = 'w-auto h-[28rem] mx-24';
   }
