@@ -3,7 +3,13 @@ import Map from './components/maps';
 import Navbar from './components/Navbar';
 import Label from './components/Label';
 
-export default function Home() {
+export default async function Home() {
+  const host = 'http://localhost:8000'
+  const locations = await fetch(`${host}/sinnoh-stores/get-locations`).then(
+    res => {
+      res.json()
+    }
+  );
   return (
     <>
       <title>Sinnoh Souvenirs</title>

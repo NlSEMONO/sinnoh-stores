@@ -5,8 +5,8 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import Label from './Label';
 import { EVERYTHING_ELSE, PHONES, SMALL_LAPTOP, TABLETS } from '../constants';
 
-const Map = async () => {
-  const [screenSetting, useScreenSetting] = useState(2);
+const Map = () => {
+  let screenSetting = 2;
   const SendSize = useContext(ScreenContext);
   useEffect(() => {
     const setSetting = () => {
@@ -14,17 +14,16 @@ const Map = async () => {
       const html = document.documentElement;
       let width = Math.min(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
       let height = Math.min(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-      console.log(width, height);
       if (width < 521) {
-        useScreenSetting(PHONES);
+        screenSetting = PHONES;
       }
       else if (width < 721) {
-        useScreenSetting(TABLETS);
+        screenSetting = TABLETS;
       }
       else if (width < 1080) {
-        useScreenSetting(SMALL_LAPTOP);
+        screenSetting = SMALL_LAPTOP;
       } else {
-        useScreenSetting(EVERYTHING_ELSE);
+        screenSetting = EVERYTHING_ELSE;
       }
     };
     setSetting();
@@ -34,20 +33,16 @@ const Map = async () => {
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string // "AIzaSyAEYKvYmAURX7zN847wkQHmidfvHw61By8"
   })
 
-  const locations = await fetch('https://dummyjson.com/products/1').then(
-    res => res.json()
-  );
-  
   return isLoaded ? (
     <div className='py-8'>
       <ScreenContext.Provider value={screenSetting}> 
-        <WrappedMap locations={await locations}/>
+        <WrappedMap/>
       </ScreenContext.Provider>
     </div>
   ) : <div> Loading... </div>
 }
 
-function WrappedMap(props: {locations: object}) {
+function WrappedMap() {
   const screenSetting = useContext(ScreenContext);
   const hokkaidoCoords = {
     lat: 43.7203, 
