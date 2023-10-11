@@ -30,7 +30,7 @@ const Map = () => {
     window.addEventListener('resize', () => {setSetting()});
   }, []);
   const {isLoaded} = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string // "AIzaSyAEYKvYmAURX7zN847wkQHmidfvHw61By8"
+    googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string
   })
 
   return isLoaded ? (
