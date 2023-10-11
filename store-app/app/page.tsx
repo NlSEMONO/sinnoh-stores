@@ -4,12 +4,11 @@ import Navbar from './components/Navbar';
 import Label from './components/Label';
 
 export default async function Home() {
-  const host = 'http://localhost:8000'
+  const host = 'https://www.fmadarang.com';
   const locations = await fetch(`${host}/sinnoh-stores/get-locations`).then(
-    res => {
-      res.json()
-    }
-  );
+      res => res.json()
+  )
+
   return (
     <>
       <title>Sinnoh Souvenirs</title>
@@ -20,7 +19,7 @@ export default async function Home() {
       </div>
       <div className='bg-main1 my-8'>
         <Label label={'Our Locations'} type={2}/>
-        <Map/>
+        <Map locations={locations}/>
       </div>
     </>
   )
