@@ -2,9 +2,7 @@
 import {useEffect, useState, useMemo, useContext} from 'react';
 import { ScreenContext } from './ScreenContext';
 import { GoogleMap, useLoadScript, Marker, MarkerF } from "@react-google-maps/api";
-import Label from './Label';
 import { EVERYTHING_ELSE, PHONES, SMALL_LAPTOP, TABLETS, CITY_TO_BADGE } from '../constants';
-import { promises } from 'dns';
 
 const Map = (props: {locations: Object}) => {
   let screenSetting = 2;
