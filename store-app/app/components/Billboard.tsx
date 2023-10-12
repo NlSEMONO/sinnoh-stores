@@ -1,28 +1,25 @@
 import React from 'react'
 import Image from 'next/image';
 
+const IMG_LINK = '/Dream_Choice_Band_Sprite.png';
+const IMG_SIZES = [24, 36, 44];
 const TITLE = 'Choice Items';
-const CONTENT = 'Power up the speed or special attack of your Pokemon with brand new choice items! Make sure to use choose your move carefully!';
+const CONTENT = 'Power up the speed or special attack of your Pokemon with brand new choice items!';
 
 const Billboard = () => {
   return (
-    <div className="flex mx-6 lg:mx-10 pb-8 justify-center">
-        <div className='flex flex-col justify-start md:justify-start my-4 text-center md:mx-8'>
-            <h2 className='text-xl'> {TITLE} </h2>
-            <p className='max-w-sm'> {CONTENT} </p>
+    <div className="flex mx-6 lg:mx-10 xl:mx-30 2xl:mx-52 pb-8 justify-center items-center md:justify-around xl:justify-around 2xl:justify-between 2xl:pb-16">
+        <div className='flex flex-col justify-start md:justify-start my-4 text-center mx-2 md:mx-8'>
+            <h2 className='text-xl font-bold lg:text-2xl 2xl:text-4xl 2xl:my-4'> {TITLE} </h2>
+            <p className='max-w-sm md:max-w-md lg:max-w-lg 2xl:max-w-2xl text-sm md:text-base lg:text-lg  2xl:text-2xl'> {CONTENT} </p>
+            <button className='mt-8 animate-pulse border-2 border-black bg-pop-contrast w-40 h-8 lg: lg:w-72 lg:h-12 lg:text-2xl rounded-md self-center'> Shop Now </button>
         </div>
-        <img src="https://archives.bulbagarden.net/media/upload/6/6a/Dream_Choice_Scarf_Sprite.png"
-          className='w-100 h-100 md:w-150 md:h-150 md:mx-8 xl:w-250 xl:h-250'
+        <img src={IMG_LINK}
+          className={`w-24 h-${IMG_SIZES[0]} lg:w-36 lg:h-${IMG_SIZES[1]} 2xl:w-44 2xl:h-${IMG_SIZES[2]} 
+                    mx-2 md:mx-8 2xl:mt-16 mb-12 lg:mb-6`}
         ></img>
-        /* <Image
-            src="https://archives.bulbagarden.net/media/upload/6/6a/Dream_Choice_Scarf_Sprite.png"
-            alt="Choice Scarf"
-            sizes='(max-width: 640px) 100vw, (max-width: 1200px) 100vw, 100vw'
-            width={211}
-            height={205}
-            className='m-4'
-        ></Image> */
     </div>
+    
   )
 }
 

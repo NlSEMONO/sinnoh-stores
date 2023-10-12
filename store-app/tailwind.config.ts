@@ -17,7 +17,10 @@ const config: Config = {
         'main1': '#FFFFFF',
         'main2': '#FFFFFF',
         'main3': '#F0F0F0',
-        'text1': '#483C32',
+        'pop1': '#4E6EAE',
+        'pop2': '#2652A9',
+        'pop-contrast': '#FFC963',
+        'text1': '#483C32'
       }
     },
   },

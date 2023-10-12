@@ -15,7 +15,7 @@ export default async function Home() {
       <title>Sinnoh Souvenirs</title>
       <Navbar/>
       <Label label={'Sinnoh Souvenirs'} type={1}/>
-      <div className='bg-main3'> 
+      <div className='bg-pop1 max-w-[90%] mx-auto'> 
         <Label label={"New Products"} type={2}></Label>
         <Billboard/>
       </div>
