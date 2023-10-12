@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        pulse2: 'pulse2 1s infinite'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -17,10 +20,17 @@ const config: Config = {
         'main1': '#FFFFFF',
         'main2': '#FFFFFF',
         'main3': '#F0F0F0',
-        'pop1': '#4E6EAE',
+        'pop1': '#0C388F',
         'pop2': '#2652A9',
-        'pop-contrast': '#FFC963',
+        'pop-text': '#82A2E2',
+        'pop-contrast': '#D68C00',
         'text1': '#483C32'
+      },
+      keyframes: {
+        'pulse2': {
+          '0%, 100%': {transform: 'scale(1)'},
+          '50%': {transform: 'scale(1.05)'}
+        }
       }
     },
   },

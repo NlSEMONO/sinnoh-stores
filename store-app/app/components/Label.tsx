@@ -1,5 +1,5 @@
-const Label = (props: {label: string, type: number}) => {
-  let classes = 'py-4 text-black text-center';
+const Label = (props: {label: string, type: number, color?: string}) => {
+  let classes = `py-4 text-black text-center text-${props.color === null ? 'black' : props.color}`;
   let typeSettings = [
     '',
     ' text-3xl lg:text-5xl 2xl:text-[6xl]',  // 1
