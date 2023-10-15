@@ -1,6 +1,6 @@
 const Label = (props: {label: string, type: number, color?: string}) => {
-  let classes = `py-4 text-black text-center text-${props.color === null ? 'black' : props.color}`;
-  let typeSettings = [
+  let classes:string = `py-4 text-black text-center text-${props.color === null ? 'black' : props.color}`;
+  let typeSettings:Array<string> = [
     '',
     ' text-3xl lg:text-5xl 2xl:text-[6xl]',  // 1
     ' text-2xl lg:text-4xl 2xl:text-5xl',    // 2

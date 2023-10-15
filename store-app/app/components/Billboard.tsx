@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image';
 
-const IMG_LINK = '/Dream_Choice_Band_Sprite.png';
-const IMG_SIZES = [24, 36, 44];
-const TITLE = 'Choice Items';
-const CONTENT = 'Power up the speed or special attack of your Pokemon with brand new choice items!';
+const IMG_LINK: string = '/Dream_Choice_Band_Sprite.png';
+const IMG_SIZES: Array<Number> = [24, 36, 44];
+const TITLE: string = 'Choice Items';
+const CONTENT:string = 'Power up the speed or special attack of your Pokemon with brand new choice items!';
 
 const Billboard = () => {
   return (
