@@ -6,11 +6,10 @@ on given constraints (location, price, etc.)
 
 import { useState, useEffect, FC } from 'react'
 import Navbar from '../components/Navbar'
-import Sidebar from './components/Sidebar'
 import ProductCatalog from './components/ProductCatalog'
 
 const HOST: string = 'https://fmadarang.com'
-const DEFAULT_PROUDCTS = [
+const DEFAULT_PRODUCTS = [
     {
         id: 1,
         name: 'Dusk Ball',
@@ -45,15 +44,17 @@ const page: FC = () => {
     // const effectiveProducts = (products === null) ? DEFAULT_PROUDCTS : products.map(
 
     // )
-    const effectiveProducts = DEFAULT_PROUDCTS
+    const effectiveProducts = DEFAULT_PRODUCTS;
 
     // display products based on filters
     return (
-        <div id='page'>
-            <Navbar />
-            <Sidebar />
-            <ProductCatalog products={effectiveProducts} />
-        </div>
+        <>  
+            <title> Sinnoh Stores </title>
+            <div id='page'>
+                <Navbar />
+                <ProductCatalog products={effectiveProducts} />
+            </div>
+        </>
     );
 }
 
