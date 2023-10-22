@@ -87,7 +87,7 @@ function WrappedMap(props: {locations_info: any}) {
     for (let key in props.locations_info) {
       if (props.locations_info.hasOwnProperty(key)) {
         let data = props.locations_info[key]
-        let center = {lat: parseFloat(data['lat']), lng: parseFloat(data['lng'])}
+        let center = {lat: parseFloat(data.lat), lng: parseFloat(data.lng)}
         markers.push(<MarkerF key={counter} position={center}> </MarkerF>);
         counter++;
       }

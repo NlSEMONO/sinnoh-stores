@@ -53,7 +53,7 @@ function loadFunctions(numFuncs: number, stateFunction: Function, oldArr: Array<
     return funcs;
 }
 
-const page: FC = () => {
+const page: FC = async () => {
     // show all prices & locations by default
     const [PRICE_FILTER, setPRICE_FILTER ]= useState(Array(5).fill(true));
     const [LOCATION_FILTER, setLOCATION_FILTER] = useState(Array(12).fill(true));
@@ -61,6 +61,7 @@ const page: FC = () => {
     const LOCATIONS = useMemo(() => CITIES, []);
     const PRICE_FUNCTIONS = useMemo(() => loadFunctions(5, setPRICE_FILTER, PRICE_FILTER), [PRICE_FILTER]);
     const LOCATION_FUNCTIONS = useMemo(() => loadFunctions(5, setLOCATION_FILTER, LOCATION_FILTER), [LOCATION_FILTER]);
+    const PRODUCTS = await fetch(`${HOST}/sinnoh-stores/get-products`).then(res => res.json());
 
     const priceInfo: FilterArray = {
         labels: PRICES,
@@ -73,16 +74,12 @@ const page: FC = () => {
         stateFunctions: LOCATION_FUNCTIONS,
         state: LOCATION_FILTER
     }
-    // fetch products from database
-    // const products = await fetch(`${HOST}/sinnoh-stores/get-products`).then(
-    //     res => res.json()
-    // );
 
     // filter products based on price & location
     // const effectiveProducts = (products === null) ? DEFAULT_PROUDCTS : products.map(
 
     // )
-    const effectiveProducts = DEFAULT_PRODUCTS;
+    const effectiveProducts = PRODUCTS;
 
     // display products based on filters
     return (
