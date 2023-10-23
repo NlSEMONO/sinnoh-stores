@@ -6,7 +6,7 @@ const Sidebar = ({priceInfo, locationInfo}: PricesLocations) => {
   const [hide, setHide] = useState('hidden');
   return (
     <div className={`${hide} md:block w-20 md:w-72 lg:w-40 xl:w-56 top-18 h-full`}>
-        <h1> Filters </h1>
+        <h1 className='text-2xl'> Filters </h1>
         <CheckList labels={priceInfo.labels} stateFunctions={priceInfo.stateFunctions} state={priceInfo.state}/>
         <br/>
         <br/>

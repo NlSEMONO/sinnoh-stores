@@ -39,7 +39,7 @@ const Map = (props: {locations: Object}) => {
       }
     };
     setSetting();
-    setInterval(() => console.log(screenSetting.current), 1000);
+    // setInterval(() => console.log(screenSetting.current), 1000);
     window.addEventListener('resize', () => {setSetting(); setToSend(screenSetting.current)});
   }, []);
 
@@ -56,7 +56,7 @@ function WrappedMap(props: {locations_info: any}) {
   const screenSetting = useContext(ScreenContext);
   // const zoom = useRef(7);
   // const classes = useRef('');
-  setInterval(() => console.log(screenSetting, 'b'), 1000);
+  // setInterval(() => console.log(screenSetting, 'b'), 1000);
 
   const hokkaidoCoords = {
     lat: 43.7203, 
@@ -78,7 +78,7 @@ function WrappedMap(props: {locations_info: any}) {
     zoom = 7.55;
     classes = 'w-auto h-[40rem] mx-48';
   }
-  setInterval(() => console.log(zoom, 2), 1000)
+  // setInterval(() => console.log(zoom, 2), 1000)
   // setInterval(() => console.log(props.locations_info), 1000)
   // setInterval(() => console.log(CITY_TO_BADGE), 1000)
   const markers = [];

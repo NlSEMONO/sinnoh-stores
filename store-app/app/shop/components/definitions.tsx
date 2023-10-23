@@ -9,6 +9,7 @@ export interface Product {
   id: number,
   name: string, 
   price: number,
+  locations: Array<string>,
   image: string
 }
 
