@@ -12,6 +12,10 @@ export interface ProductBuying {
   images: Array<string>
 }
 
+export interface SingleProductBuying {
+  product: ProductBuying
+}
+
 export interface ProductListing {
   id: number,
   name: string, 

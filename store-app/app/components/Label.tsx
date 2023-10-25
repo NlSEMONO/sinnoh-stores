@@ -4,6 +4,7 @@ const Label = (props: {label: string, type: number, color?: string}) => {
     '',
     ' text-3xl lg:text-5xl 2xl:text-[6xl]',  // 1
     ' text-2xl lg:text-4xl 2xl:text-5xl',    // 2
+    ' text-5xl' // 3
   ]
   classes += typeSettings[props.type];
   return ( 

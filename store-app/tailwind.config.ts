@@ -9,7 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        pulse2: 'pulse2 1s infinite'
+        pulse2: 'pulse2 1.5s infinite'
+      },
+      width: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '25': '6.25rem',
+        '26': '6.5rem',
+        '30': '7.5rem',
+        '55': '13.75rem',
+        '66': '16.5rem',
+        '90': '22.5rem',
+        '115': '28.75rem',
+      },
+      height: { 
+        '115': '28.75rem',
+      }, 
+      minWidth: {
+        '90': '22.5rem',
+      },
+      padding: {
+        '3.5': '0.875rem',
+        '4.2': '1.05rem',
+        '6.5': '1.625rem',
+        '6.75': '1.6875rem',
+        '12.5': '3.125rem',
+        '16.25': '4.0625rem',
+        '17.5': '4.375rem',
+      },
+      margin: {
+        '3.125': '0.78125rem',
+        '3.75': '0.9375rem',
+        '9': '2.25rem',
+        '13.75': '3.4375rem',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
