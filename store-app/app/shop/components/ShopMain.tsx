@@ -8,7 +8,7 @@ import { useState, useEffect, FC, useMemo } from 'react'
 import Navbar from '../../components/Navbar'
 import ProductCatalog from './ProductCatalog'
 import Sidebar from './Sidebar'
-import { CITIES, FilterArray, LISTED_PRICES, Product, ProductList } from './definitions';
+import { CITIES, FilterArray, LISTED_PRICES, ProductListing, ProductListingList } from './definitions';
 
 function cloneArray(arr: Array<boolean>) {
     let newArr = Array(arr.length);
@@ -31,7 +31,7 @@ function loadFunctions(numFuncs: number, stateFunction: Function, oldArr: Array<
     return funcs;
 }
 
-const ShopMain = ({products}: ProductList) => {
+const ShopMain = ({products}: ProductListingList) => {
     // show all prices & locations by default
     const [PRICE_FILTER, setPRICE_FILTER]= useState(Array(5).fill(true));
     const [LOCATION_FILTER, setLOCATION_FILTER] = useState(Array(12).fill(true));
@@ -54,7 +54,7 @@ const ShopMain = ({products}: ProductList) => {
 
     // filter products based on price & location
     const effectiveProducts = products.map(
-        (product: Product) => {
+        (product: ProductListing) => {
             let price = false;
             let location = false;
             for (let i=0;i<PRICE_FILTER.length;i++) {

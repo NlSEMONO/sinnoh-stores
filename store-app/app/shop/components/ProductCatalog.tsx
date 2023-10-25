@@ -1,8 +1,8 @@
 import {useMemo, useState} from 'react'
 import ProductCard from './ProductCard'
-import { Product, ProductList } from './definitions';
+import { ProductListing, ProductListingList } from './definitions';
 
-const ProductCatalog = ({products}: ProductList) => {
+const ProductCatalog = ({products}: ProductListingList) => {
   const cards = products.map((product) => (product === undefined) ? null : <ProductCard key={product.id} product={product} />);
   
   return (

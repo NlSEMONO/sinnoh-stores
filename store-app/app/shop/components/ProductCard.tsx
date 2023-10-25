@@ -1,8 +1,8 @@
 import React from 'react'
-import { Product, SingleProduct } from './definitions'
+import { ProductListing, SingleProductListing } from './definitions'
 import Link from 'next/link'
 
-const ProductCard = ({product}: SingleProduct) => {
+const ProductCard = ({product}: SingleProductListing) => {
     const productName = product.name.split(" ").join('-');
     return (
         <div className="m-2 sm:m-4 md:m-2 2xl:m-4"> 

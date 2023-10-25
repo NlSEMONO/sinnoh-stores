@@ -5,7 +5,14 @@ export const LISTED_PRICES = [
   '0-100', '101-500', '501-1000', '1001-5000', '5001+'
 ]
 
-export interface Product {
+export interface ProductBuying {
+  name: string,
+  price: number,
+  locations: Array<string>,
+  images: Array<string>
+}
+
+export interface ProductListing {
   id: number,
   name: string, 
   price: number,
@@ -13,12 +20,12 @@ export interface Product {
   image: string
 }
 
-export interface SingleProduct {
-  product: Product
+export interface SingleProductListing {
+  product: ProductListing
 }
   
-export interface ProductList {
-  products: Array<Product>
+export interface ProductListingList {
+  products: Array<ProductListing>
 }
 
 export interface PricesLocations {
