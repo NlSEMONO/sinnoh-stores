@@ -3,7 +3,7 @@ import ProductCard from './ProductCard'
 import { Product, ProductList } from './definitions';
 
 const ProductCatalog = ({products}: ProductList) => {
-  const cards = products.map((product) => <ProductCard key={product.id} product={product} />);
+  const cards = products.map((product) => (product === undefined) ? null : <ProductCard key={product.id} product={product} />);
   
   return (
       <div className='flex justify-between flex-wrap w-96 sm:w-fit m-auto sm:m-0'>

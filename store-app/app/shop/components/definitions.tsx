@@ -1,5 +1,5 @@
 export const CITIES = [
-  'Jubilife City', 'Oreburgh City', 'Eterna City', 'Hearthome City', 'Solaceon Town', 'Veilstone City', 'Pastoria City', 'Celestic Town', 'Canalave City', 'Snowpoint City', 'Sunyshore City', 'Twinleaf Town'
+  'Jubilife City', 'Oreburgh City', 'Eterna City', 'Hearthome City', 'Solaceon Town', 'Veilstone City', 'Pastoria City', 'Celestic Town', 'Canalave City', 'Snowpoint City', 'Sunnyshore City', 'Twinleaf Town'
 ]
 export const LISTED_PRICES = [
   '0-100', '101-500', '501-1000', '1001-5000', '5001+'
