@@ -30,7 +30,9 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
   const DOUBLE_MARGIN = useMemo(() => 'my-5 md:my-6 lg:my-8 xl:my-10', []);
   const NORMAL_TEXT = useMemo(() => 'md:text-xl lg:text-2xl xl:text-3xl', []);
   const LARGE_TEXT = useMemo(() => 'text-3xl md:text-4xl lg:text-5xl xl:text-5.5xl', []);
-  const CIRCLE = useMemo(() => 'w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-main3 py-1 px-4.2 border-black border-2 rounded-full', []);
+  const CIRCLE = useMemo(() => 'w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-main3 border-black border-2 rounded-full', []);
+  const CIRCLE_MINUS = useMemo(() => 'py-1 px-4.2', []);
+  const CIRCLE_PLUS = useMemo(() => 'py-1 px-3.25 lg:pb-2 xl:px-3.5 xl:pb-2', []);
   const ADD_FRAME = useMemo(() => {
     return 'flex flex-row justify-between w-50 md:w-60 lg:w-72 xl:w-84 m-auto rounded-full border-2 border-l-0 border-r-0 border-black items-center'
             + ' h-12 md:h-16 lg:h-20'
@@ -51,14 +53,14 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
         <span className={`text-2xl ${DEFAULT_MARGIN} md:text-3xl lg:text-4xl xl:text-4.5xl`}> {stock === 0 ? 'Out of Stock' : `In stock: ${stock}`} </span>
       </div>
       <div className={`${ADD_FRAME}`}>
-        <button className={`${CIRCLE} ${quantity > 1 ? '' : 'opacity-50' }`} 
+        <button className={`${CIRCLE} ${quantity > 1 ? '' : 'opacity-50' } ${CIRCLE_MINUS}`} 
           onClick={() => changeQty(-1)}> 
           <span className={`${LARGE_TEXT}`}> - </span>
         </button>
         <div>
           <span className={`${LARGE_TEXT}`}> {quantity} </span>
         </div>
-        <button className={`${CIRCLE}`}
+        <button className={`${CIRCLE} ${CIRCLE_PLUS}`}
           onClick={() => changeQty(1)}> 
           <span className={`${LARGE_TEXT}`}> + </span>
         </button>

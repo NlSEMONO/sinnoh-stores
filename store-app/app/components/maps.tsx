@@ -4,7 +4,12 @@ import { ScreenContext } from './ScreenContext';
 import { GoogleMap, useLoadScript, Marker, MarkerF } from "@react-google-maps/api";
 import { EVERYTHING_ELSE, PHONES, SMALL_LAPTOP, TABLETS, CITY_TO_BADGE } from '../constants';
 
-const Map = (props: {locations: Object}) => {  
+interface posn {
+  lat: number,
+  lng: number
+}
+
+const Map = (props: {locations: Object, zoom?: number, center?: posn}) => {  
   const screenSetting = useRef(0);
   const [toSend, setToSend] = useState(screenSetting.current);
   // const [screenSetting, useScreenSetting] = useState(0);
