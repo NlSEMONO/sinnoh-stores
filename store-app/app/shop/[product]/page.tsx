@@ -35,9 +35,16 @@ async function Page({params} : ParamList)  {
   return (
     <>
       <Navbar/>
-      <Label label={productName} type={3}/>
-      <ProductImages images={PRODUCT_DATA.images}/> 
-      <ProductStatistics product={PRODUCT_DATA}/>
+      
+      <div className='md:flex md:flex-row md:justify-around 2xl:justify-between 2xl:w-10/12 mx-auto'> 
+        <div className='md:w-96 2xl:w-130'>
+          <Label label={productName} type={3}/>
+          <ProductImages images={PRODUCT_DATA.images}/> 
+        </div>
+        <div className='md:mt-28'>
+          <ProductStatistics product={PRODUCT_DATA}/>
+        </div>
+      </div>
     </>
   )
 }

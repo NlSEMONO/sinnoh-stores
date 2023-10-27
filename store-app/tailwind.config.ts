@@ -12,6 +12,8 @@ const config: Config = {
         pulse2: 'pulse2 1.5s infinite'
       },
       width: {
+        '9.6': '2.4rem',
+        '10': '2.5rem',
         '18': '4.5rem',
         '22': '5.5rem',
         '25': '6.25rem',
@@ -21,8 +23,10 @@ const config: Config = {
         '52.5': '13.125rem',
         '55': '13.75rem',
         '66': '16.5rem',
+        '84': '21rem',
         '90': '22.5rem',
         '115': '28.75rem',
+        '130': '32.5rem',
       },
       height: { 
         '115': '28.75rem',
@@ -30,6 +34,11 @@ const config: Config = {
       minWidth: {
         '52.5': '13.125rem',
         '90': '22.5rem',
+        '130': '32.5rem',
+      },
+      text: {
+        '4.5xl': '2.625rem',
+        '5.5xl': '3.3775rem',
       },
       padding: {
         '1.5': '0.375rem',

@@ -36,7 +36,7 @@ const ProductImages = ({images}: Images) => {
     return (
         <div>
             {DISPLAY_IMAGES[0]}
-            <div className="flex flex-row min-w-90 justify-center">
+            <div className="flex flex-row min-w-90 justify-center 2xl:min-w-130">
                 {otherImages}
             </div>
         </div>
