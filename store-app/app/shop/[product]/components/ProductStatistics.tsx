@@ -8,6 +8,7 @@ import { ProductBuying, SingleProductBuying } from '../../components/definitions
 const ProductStatistics = ({product}: SingleProductBuying) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [stock, setStock] = useState<number>(0);
+  const HOST: string = 'https://fmadarang.com';
 
   const ALL_LOCATIONS = product.locations.map((location: string) => {
     return (
@@ -15,7 +16,8 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
     )
   });
   const checkStock = async (location: string) => {
-    const response = await fetch(`https://dummyjson.com/products/1`);
+    const response = await fetch(`${HOST}/sinnoh-stores/get-stock?item=${product.name}&shop=${location.split(" ")[0]}`)
+      .then(res => res.json());
     const data = await response.json();
     setStock(await data.stock);
   }
