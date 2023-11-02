@@ -10,6 +10,12 @@ const Navbar = () => {
           <img src='sinnoh-shop-logo.svg' className='w-24 h-24'></img>
         </Link>
       </div> 
+      <div>
+        <Link href='/cart'>
+          {/* <img src='shopping-cart.svg' className='w-12 h-12 m-2'></img> */}
+          <Label label='Cart' type={2}/>
+        </Link>
+      </div>
     </div>
   )
 }

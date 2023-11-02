@@ -18,14 +18,20 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
   const checkStock = async (location: string) => {
     const response = await fetch(`${HOST}/sinnoh-stores/get-stock?item=${product.name}&shop=${location.split(" ")[0]}`)
       .then(res => res.json());
-    const data = await response.json();
-    setStock(await data.stock);
+    const data = await response;
+    setStock(await data.quantity);
   }
   const changeQty = (amount: number) => {
     if (quantity + amount > 0) {
       setQuantity(quantity + amount);
     }
   }
+  useEffect(() => {
+    // console.log(product.locations[0]);
+    // setTimeout(() => checkStock(product.locations[0]), );
+    checkStock(product.locations[0]);
+  }, []);
+
   const PRICE_LABEL = useMemo(() => 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl', []);
   const POKEDOLLAR = useMemo(() => 'self-end md:w-8 lg:w-9.6 xl:w-12', []);
   const DEFAULT_MARGIN = useMemo(() => 'my-2.5 md:my-3 lg:my-4 xl:my-5', []);

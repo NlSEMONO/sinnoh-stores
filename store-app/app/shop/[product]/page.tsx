@@ -8,7 +8,6 @@ import Navbar from '@/app/components/Navbar';
 import Label from '@/app/components/Label';
 import ProductImages from './components/ProductImages';
 import ProductStatistics from './components/ProductStatistics';
-import Map from '@/app/components/maps';
 
 interface ParamList {
   params: { product: string }

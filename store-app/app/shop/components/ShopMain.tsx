@@ -25,7 +25,7 @@ function loadFunctions(numFuncs: number, stateFunction: Function, oldArr: Array<
             const newFilter = cloneArray(oldArr);
             newFilter[i] = !newFilter[i];
             stateFunction(newFilter);
-            console.log(newFilter);
+            // console.log(newFilter);
         }
     }
     return funcs;
