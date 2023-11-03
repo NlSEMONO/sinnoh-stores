@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { getSession, resetSession, setSession } from '@/app/components/Cookies';
 import { ProductListing } from '@/app/shop/components/definitions';
 import { CITIES } from '@/app/shop/components/definitions';
+import HOST from '@/app/components/HOST';
 
 interface ProductData {
     prods: ProductListing[], 
@@ -13,7 +14,6 @@ interface ProductData {
 const CheckoutButton = ({prods, prodsInCart}: ProductData) => {
     const ADD_BUTTON_SIZE = 'w-55 h-12 md:w-66 md:h-16 lg:w-80 lg:h-20 xl:w-84 xl:h-24';
     const LARGE_TEXT = 'text-3xl md:text-4xl lg:text-5xl xl:text-5.5xl';
-    const HOST: string = 'http://localhost:8000' //'https://fmadarang.com';
     const [isOnline, setIsOnline] = useState(true);
     const [pickupLocation, setPickupLocation] = useState('');
 

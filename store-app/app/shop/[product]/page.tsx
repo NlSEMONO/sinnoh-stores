@@ -9,11 +9,12 @@ import Label from '@/app/components/Label';
 import ProductImages from './components/ProductImages';
 import ProductStatistics from './components/ProductStatistics';
 import { setSession } from '@/app/components/Cookies';
+import HOST from '@/app/components/HOST';
 
 interface ParamList {
   params: { product: string }
 }
-const HOST: string = 'http://localhost:8000' // 'https://fmadarang.com';
+
 
 const DEFAULT_PRODUCT_DATA: ProductBuying = {
   name: 'Poke Ball',

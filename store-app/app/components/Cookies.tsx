@@ -1,5 +1,5 @@
 
-const HOST = 'http://localhost:8000'
+import HOST from './HOST';
 
 function setSessionCookie(cookie: string) {
     const NUM_DAYS = 7;

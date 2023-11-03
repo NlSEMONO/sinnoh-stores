@@ -3,9 +3,10 @@ import Map from './components/maps';
 import Navbar from './components/Navbar';
 import Label from './components/Label';
 import Billboard from './components/Billboard';
+import HOST from './components/HOST';
 
 export default async function Home() {
-  const host = 'https://www.fmadarang.com';
+  const host = HOST;
   const locations = await fetch(`${host}/sinnoh-stores/get-locations`).then(
       res => res.json()
   )

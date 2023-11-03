@@ -1,8 +1,8 @@
 import React from 'react'
 import ShopMain from './components/ShopMain'
 import {setSession} from '../components/Cookies';
+import HOST from '../components/HOST';
 
-const HOST: string = 'https://fmadarang.com'
 const DEFAULT_PRODUCTS = [
     {
         id: 1,

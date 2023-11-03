@@ -4,6 +4,7 @@ import {useState, useEffect, useMemo} from 'react'
 import { getSession } from '@/app/components/Cookies';
 import { ProductListing } from '@/app/shop/components/definitions';
 import CheckoutButton from '@/app/cart/components/CheckoutButton';
+import HOST from '@/app/components/HOST';
 
 interface CartItem {
   name: string, 
@@ -15,7 +16,6 @@ interface AllProducts {
 }
 
 const CheckoutItems = ({prods}: AllProducts) => {
-  const HOST = 'http://localhost:8000'
   const [sesh, setSesh] = useState('');
   const [items, setItems] = useState([]);
   const [products, setProducts] = useState<ProductListing[]>([]);
@@ -64,7 +64,7 @@ const CheckoutItems = ({prods}: AllProducts) => {
     if (product === null) return;
     let cost = product.price * item.quantity;
     return (
-      <tr className={rowSettings}>
+      <tr className={rowSettings} key={item.name}>
         <td> 
           <h1 className={labelSettings}> {item.name} </h1>
           <img className={imgEntrySettings} src={product.image}/>

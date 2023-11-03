@@ -5,11 +5,11 @@ Buying menu for a single product
 import {useState, useEffect, useMemo} from 'react'
 import { ProductBuying, SingleProductBuying } from '../../components/definitions'
 import { getSession, setSession, getCSRF } from '@/app/components/Cookies';
+import HOST from '@/app/components/HOST';
 
 const ProductStatistics = ({product}: SingleProductBuying) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [stock, setStock] = useState<number>(0);
-  const HOST: string = 'http://localhost:8000' //'https://fmadarang.com';
 
   const ALL_LOCATIONS = product.locations.map((location: string) => {
     return (
