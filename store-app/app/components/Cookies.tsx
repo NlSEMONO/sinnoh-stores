@@ -9,6 +9,10 @@ function setSessionCookie(cookie: string) {
     document.cookie = `session=${cookie};expires=${date.toUTCString()};path=/`;
 }
 
+export function resetSession() {
+    setSessionCookie('');
+}
+
 export function getCSRF() {
     let name = 'csrftoken'
     let cookieValue = null;

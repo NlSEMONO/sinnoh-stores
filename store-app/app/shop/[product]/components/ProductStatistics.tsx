@@ -46,7 +46,7 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
       })
     }).then(res => res.json());
     if (await data['success']) {
-      window.prompt('Successfully added to cart.');
+      window.alert('Successfully added to cart.');
       window.location.href = '/';
     }
   }
