@@ -1,5 +1,6 @@
 import React from 'react'
 import ShopMain from './components/ShopMain'
+import {setSession} from '../components/Cookies';
 
 const HOST: string = 'https://fmadarang.com'
 const DEFAULT_PRODUCTS = [

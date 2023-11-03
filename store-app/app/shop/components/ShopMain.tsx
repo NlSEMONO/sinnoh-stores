@@ -9,6 +9,7 @@ import Navbar from '../../components/Navbar'
 import ProductCatalog from './ProductCatalog'
 import Sidebar from './Sidebar'
 import { CITIES, FilterArray, LISTED_PRICES, ProductListing, ProductListingList } from './definitions';
+import { setSession } from '@/app/components/Cookies'
 
 function cloneArray(arr: Array<boolean>) {
     let newArr = Array(arr.length);
@@ -81,7 +82,7 @@ const ShopMain = ({products}: ProductListingList) => {
     return (
         <>  
             <title> Sinnoh Stores </title>
-            <div id='page'>
+            <div id='page' onLoad={() => setSession()}>
                 <Navbar />
                 <div className='flex mt-4'>
                     <Sidebar priceInfo={priceInfo} locationInfo={locationInfo} />

@@ -8,11 +8,12 @@ import Navbar from '@/app/components/Navbar';
 import Label from '@/app/components/Label';
 import ProductImages from './components/ProductImages';
 import ProductStatistics from './components/ProductStatistics';
+import { setSession } from '@/app/components/Cookies';
 
 interface ParamList {
   params: { product: string }
 }
-const HOST: string = 'https://fmadarang.com';
+const HOST: string = 'http://localhost:8000' // 'https://fmadarang.com';
 
 const DEFAULT_PRODUCT_DATA: ProductBuying = {
   name: 'Poke Ball',
@@ -22,18 +23,20 @@ const DEFAULT_PRODUCT_DATA: ProductBuying = {
 };
 
 async function Page({params} : ParamList)  {
-  const SERVER_PRODUCT_DATA = DEFAULT_PRODUCT_DATA
+  // const SERVER_PRODUCT_DATA = DEFAULT_PRODUCT_DATA
   const locations = await fetch(`${HOST}/sinnoh-stores/get-locations`).then(
     res => res.json()
   )
   const productName = params.product.split("-").join(' ');
-  // const SERVER_PRODUCT_DATA = await fetch(`${HOST}/sinnoh-stores/get-product`, {
-  //   next: {revalidate: 24*60*60}, 
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({product: params.product})
-  // }).then(res => res.json());
+  const SERVER_PRODUCT_DATA = await fetch(`${HOST}/sinnoh-stores/get-product`, {
+    method: 'POST',
+    cache: 'no-store',
+    // next: {revalidate: 24*60*60}, 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({'product': productName})
+  }).then(res => res.json());
   const PRODUCT_DATA = SERVER_PRODUCT_DATA === null ? DEFAULT_PRODUCT_DATA : SERVER_PRODUCT_DATA;
   return (
     <>
@@ -43,10 +46,6 @@ async function Page({params} : ParamList)  {
           <Label label={productName} type={3}/>
           <ProductImages images={PRODUCT_DATA.images}/> 
         </div>
-        {/* <ProductStatistics product={PRODUCT_DATA} locations={locations}/> */}
-        {/* <div className='xl:w-96 md:mt-28'>
-          <Map locations={locations}/>
-        </div> */}
         <div className='md:mt-28'>
           <ProductStatistics product={PRODUCT_DATA}/>
         </div>

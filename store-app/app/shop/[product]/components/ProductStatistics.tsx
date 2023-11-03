@@ -4,11 +4,12 @@ Buying menu for a single product
 */
 import {useState, useEffect, useMemo} from 'react'
 import { ProductBuying, SingleProductBuying } from '../../components/definitions'
+import { getSession, setSession, getCSRF } from '@/app/components/Cookies';
 
 const ProductStatistics = ({product}: SingleProductBuying) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [stock, setStock] = useState<number>(0);
-  const HOST: string = 'https://fmadarang.com';
+  const HOST: string = 'http://localhost:8000' //'https://fmadarang.com';
 
   const ALL_LOCATIONS = product.locations.map((location: string) => {
     return (
@@ -32,6 +33,24 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
     checkStock(product.locations[0]);
   }, []);
 
+  const addToCart = async (quantity: number, product: ProductBuying) => {
+    let data = await fetch(`${HOST}/sinnoh-stores/add-to-cart`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      }, 
+      body: JSON.stringify({
+        'name': product.name,
+        'quantity': quantity,
+        'session': getSession()
+      })
+    }).then(res => res.json());
+    if (await data['success']) {
+      window.prompt('Successfully added to cart.');
+      window.location.href = '/';
+    }
+  }
+
   const PRICE_LABEL = useMemo(() => 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl', []);
   const POKEDOLLAR = useMemo(() => 'self-end md:w-8 lg:w-9.6 xl:w-12', []);
   const DEFAULT_MARGIN = useMemo(() => 'my-2.5 md:my-3 lg:my-4 xl:my-5', []);
@@ -49,7 +68,7 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
 
   return (
     <div>
-      <div className={`flex flex-row justify-center items-center ${DOUBLE_MARGIN}`}>
+      <div className={`flex flex-row justify-center items-center ${DOUBLE_MARGIN}`} onLoad={() => setSession()}>
         <img className={POKEDOLLAR} src='/28px-PokémonDollar_VIII_ZH.png' alt='money'/>
         <span className={PRICE_LABEL}>{product.price}</span>
       </div>
@@ -75,7 +94,7 @@ const ProductStatistics = ({product}: SingleProductBuying) => {
       </div>
       <div className={`${ADD_BUTTON_SIZE} mx-auto ${DOUBLE_MARGIN}`}> 
         <button className={`${ADD_BUTTON_SIZE} bg-main3`}> 
-          <span className={`${LARGE_TEXT}`}> Add to Cart </span>
+          <span className={`${LARGE_TEXT}`} onClick={() => addToCart(quantity, product)}> Add to Cart </span>
         </button>
       </div>
     </div>
