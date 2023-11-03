@@ -62,7 +62,7 @@ const CheckoutButton = ({prods, prodsInCart}: ProductData) => {
 
     const pickupDropdown = possiblePickupLocations.map(x => {
         return (
-            <option value={x}> 
+            <option value={x} key={x}> 
                 {x}
             </option>
         )
