@@ -2,9 +2,9 @@
 
 This is an e-commerce App based on stores in Pokemon's [Sinnoh](https://bulbapedia.bulbagarden.net/wiki/Sinnoh) region. 
 
-## NOTE: Though you may view the project in deployment [here](https://sinnoh-store.vercel.app), some features may be slow due to poor computational resources on the server (it's an AWS EC2 instance running an ubuntu on a small amount of RAM) the API is hosted on.
-## The [API](https://github.com/NlSEMONO/fmadarang.com/tree/main/main/sinnoh_stores) is built on the same server I used to build my website on. I chose to do this just to get a feel of how important computational power is to a server, even if it's a small one. 
-## Due to how slow the API is in deployment, the best way to experience this project is by hosting the API yourself locally on your machine.
+#### NOTE: Though you may view the project in deployment [here](https://sinnoh-store.vercel.app), some features may be slow due to poor computational resources on the server (it's an AWS EC2 instance running an ubuntu on a small amount of RAM) the API is hosted on.
+#### The [API](https://github.com/NlSEMONO/fmadarang.com/tree/main/main/sinnoh_stores) is built on the same server I used to build my website on. I chose to do this just to get a feel of how important computational power is to a server, even if it's a small one. 
+#### Due to how slow the API is in deployment, the best way to experience this project is by hosting the API yourself locally on your machine.
 
 Steps: 
 1. Clone the [API's repo](https://github.com/NlSEMONO/fmadarang.com/tree/main/main/sinnoh_stores) by downloading it or using git clone.
