@@ -12,5 +12,6 @@ Steps:
 3. cd to main then run python manage.py runserver on it
 4. Clone this repo (downloading or git clone)
 5. cd to store-app directory
-6. run npm run dev
-7. open http://localhost:3000 on your browser to view the app!
+6. run npm -i --force (haven't updated dependencies)
+7. run npm run dev
+8. open http://localhost:3000 on your browser to view the app!
